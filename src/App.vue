@@ -14,5 +14,12 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+  // #twitter{
+  //   max-width: 1140px;
+  //   margin: 0 auto;
+    
+
+  // }
+
 </style>
