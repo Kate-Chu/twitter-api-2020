@@ -45,6 +45,17 @@ const routes = [
     component: () => import('../views/User.vue')
   },
   {
+    path: '/admin/tweets',
+    name: 'admin-tweets',
+    component: () => import('../views/AdminTweetsList.vue')
+  },
+  {
+    path: '/admin/users',
+    name: 'admin-users',
+    component: () => import('../views/AdminUsers.vue')
+  },
+  // NotFound
+  {
     path: '*',
     name: 'not-fount',
     component: NotFound
