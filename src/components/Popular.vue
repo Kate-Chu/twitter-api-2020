@@ -1,5 +1,5 @@
 <template>
-  <main id="popular">
+  <div id="popular">
     <h1>跟隨誰</h1>
     <div class="popular__list">
       <div class="popular__list__item">
@@ -21,12 +21,14 @@
         <button class="follow">跟隨</button>
       </div>    
     </div> 
-  </main>
+  </div>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
   @import "../assets/scss/_basic.scss";
-  main{
-    width:273px;
+  #popular{
+    width:100%;
+    margin-top: 13px;
+    max-width:273px;
     height:731px;
     background: #FAFAFB;
     border-radius: 16px;
