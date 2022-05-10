@@ -9,53 +9,34 @@
 
       <div class="setting-form__div setting-form__input-account">
         <label for="">帳號</label>
-        <input 
-          type="text" 
-          name="account"
-          placeholder="請輸入帳號" 
-        />
+        <input type="text" name="account" placeholder="請輸入帳號" />
       </div>
 
       <div class="setting-form__div setting-form__input-name">
         <label for="">名稱</label>
-        <input 
-          type="text" 
-          name="name"
-          placeholder="請輸入使用者名稱" 
-        />
+        <input type="text" name="name" placeholder="請輸入使用者名稱" />
       </div>
 
       <div class="setting-form__div setting-form__input-email">
         <label for="">Email</label>
-        <input 
-          type="email" 
-          name="email"
-          placeholder="請輸入 Email" 
-        />
+        <input type="email" name="email" placeholder="請輸入 Email" />
       </div>
 
       <div class="setting-form__div setting-form__input-password">
         <label for="">密碼</label>
-        <input 
-          type="password" 
-          name="password"
-          placeholder="請設定密碼" 
-        />
+        <input type="password" name="password" placeholder="請設定密碼" />
       </div>
 
       <div class="setting-form__div setting-form__input-password-check">
         <label for="">密碼再確認</label>
-        <input 
-          type="password" 
+        <input
+          type="password"
           name="passwordCheck"
-          placeholder="請再次輸入密碼" 
+          placeholder="請再次輸入密碼"
         />
       </div>
 
-      <button 
-        class="btn btn-setting"   
-        type="submit" :disabled="isProcessing"
-      >
+      <button class="btn btn-setting" type="submit" :disabled="isProcessing">
         儲存
       </button>
     </form>
@@ -81,12 +62,12 @@ export default {};
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: flex-start;
-  border-left: 1px solid #E6ECF0;
-  border-right: 1px solid #E6ECF0;
+  border-left: 1px solid $border-grey;
+  border-right: 1px solid $border-grey;
 }
 .title {
   width: 100%;
-  border-bottom: 1px solid #E6ECF0;
+  border-bottom: 1px solid $border-grey;
   h1 {
     font-size: 24px;
     line-height: 26px;
