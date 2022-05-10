@@ -1,9 +1,12 @@
 <template>
   <div class="container">
     <form class="regist-form" action="">
-
-      <div class="logo"> 
-        <img class="regist-form__logo-img" src="../assets/static/images/logo@2x.jpg" alt="">
+      <div class="logo">
+        <img
+          class="regist-form__logo-img"
+          src="../assets/static/images/logo@2x.jpg"
+          alt=""
+        />
       </div>
 
       <div class="title">
@@ -12,60 +15,50 @@
 
       <div class="regist-form__div regist-form__input-account">
         <label for="">帳號</label>
-        <input type="text" placeholder="請輸入帳號">
+        <input type="text" placeholder="請輸入帳號" />
       </div>
 
-      <div class="regist-form__div regist-form__input-name"> 
+      <div class="regist-form__div regist-form__input-name">
         <label for="">名稱</label>
-        <input type="text" placeholder="請輸入使用者名稱">
+        <input type="text" placeholder="請輸入使用者名稱" />
       </div>
 
       <div class="regist-form__div regist-form__input-email">
         <label for="">Email</label>
-        <input type="text" placeholder="請輸入 Email">
+        <input type="text" placeholder="請輸入 Email" />
       </div>
 
       <div class="regist-form__div regist-form__input-password">
         <label for="">密碼</label>
-        <input type="text" placeholder="請設定密碼">
+        <input type="text" placeholder="請設定密碼" />
       </div>
 
       <div class="regist-form__div regist-form__input-password-check">
         <label for="">密碼確認</label>
-        <input type="text" placeholder="請再次輸入密碼">
+        <input type="text" placeholder="請再次輸入密碼" />
       </div>
 
-      <button
-        class="btn btn-regist"
-        type="submit"
-        :disabled="isProcessing"
-      >
+      <button class="btn btn-regist" type="submit" :disabled="isProcessing">
         註冊
       </button>
 
       <div class="cancel-regist">
         <p>
-          <router-link
-            class="cancel"
-            to="/signin"
-          > 
-            取消 
+          <router-link class="frontstage-signin" to="/signin">
+            取消
           </router-link>
         </p>
       </div>
-
     </form>
   </div>
 </template>
 
 <script>
-export default {
-  
-}
+export default {};
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/basic.scss';
+@import "../assets/scss/basic.scss";
 
 .regist-form {
   display: flex;
@@ -76,6 +69,7 @@ export default {
 .logo img {
   width: 50px;
   height: 50px;
+  margin-top: 69px;
 }
 .title h1 {
   @extend %heading;
@@ -96,10 +90,10 @@ export default {
     background: $form-input-grey;
   }
   input::placeholder {
-    color: $form-input;
+    color: $form-input-placeholder;
   }
   &::after {
-    content: '';
+    content: "";
     @extend %input-bottom;
   }
 }
@@ -111,15 +105,11 @@ export default {
   margin-bottom: 22px;
   font-size: 20px;
   line-height: 30px;
-
 }
-.cancel {
-  @extend %button-white;
-  display: block;
-  width: 356px;
-  height: 46px;
-  font-size: 20px;
-  line-height: 46px;
+.frontstage-signin {
+  color: $form-link-blue;
+  font-size: 16px;
+  line-height: 24px;
   text-decoration: none;
 }
 </style>
