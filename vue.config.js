@@ -5,7 +5,7 @@
 //       //   additionalData: `@import "@/assets/scss/main.scss"`
 //       // },
 //       scss: {
-//         additionalData: `@import "@/assets/scss/main.scss";`
+//         additionalData: `@import "@/assets/scss/variable.scss";`
 //       },
 //     }
 //   }

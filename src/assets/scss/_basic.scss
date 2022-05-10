@@ -1,7 +1,53 @@
 @import "variable"; 
 
-%button {
-  border: 1px solid $orange;
-  border-radius: 50%;
+%heading {
+  color: $heading;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 26px;
 }
 
+%button-orange {
+  background: $orange;
+  border-radius: 50px;
+  color: $white;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: center;
+}
+%button-white {
+  background: $white;
+  border: 1px solid $orange;
+  border-radius: 50px;
+  color: $orange;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: center;
+}
+%input-block {
+  width: 356px;
+  height: 52px;
+  background: $form-input-grey;
+  border-radius: 0px 0px 4px 4px;
+  margin-top: 32px;
+  position: relative;
+}
+%input-bottom {
+  width: 356px;
+  height: 2px;
+  background: $form-input-border;
+  border-radius: 0px 0px 4px 4px;
+  position: absolute;
+  bottom: 0;
+}
+%form-label {
+  color: $form-label;
+  font-size: 14px;
+  line-height: 22px;
+  padding: 2px 10.6px 0 10.6px;
+}
+%form-input {
+  font-size: 16px;
+  line-height: 26px;
+  padding: 0 10.6px 2px 10.6px;
+}
