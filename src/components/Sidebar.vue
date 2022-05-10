@@ -74,7 +74,7 @@ export default {
           iconInactive: require('../assets/static/images/setIcon@2x.png')        
         }      
       ]
-      // navList: require()
+     
     }
   }
 }
@@ -95,9 +95,9 @@ export default {
     }    
     .nav__list__item{  
       margin-top:40px;
-      margin-bottom:40px;
-      cursor: pointer;    
+      margin-bottom:40px;        
       &__wrapper{
+        cursor: pointer; 
         display: flex;
         img{
           width:20px;

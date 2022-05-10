@@ -40,6 +40,11 @@ const routes = [
     component: Twitter
   },
   {
+    path: '/users/:id',
+    name: 'user',
+    component: () => import('../views/User.vue')
+  },
+  {
     path: '*',
     name: 'not-fount',
     component: NotFound
