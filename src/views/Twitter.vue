@@ -1,15 +1,18 @@
 <template>
   <main>
-    <div class="sidebar">
+    <div class="container">
+      <div class="row">
+        <div class="col-3 sidebar">
       <Sidebar />
-    </div>
-    <div class="content-container">
+      </div>
+      <div class="col-6 content-container">
 
-    </div>
-    <div class="popular-users">
-       <Popular />
-    </div>
-   
+      </div>
+      <div class="col-3  popular-users">
+        <Popular />
+      </div>
+      </div>      
+    </div>  
   </main>
  
 </template>
@@ -20,31 +23,13 @@ export default {
   components:{
      Popular,
      Sidebar
-  }
-   
-  
-  
+  }      
 }
 </script>
 <style lang="scss" scoped>
   main{
     max-width: 1140px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 15% 60% 25%;
-    
-    .side-bar{
-      grid-column: 1/2;
-    
-    }
-    .content-container{
-      grid-column: 2/3;
- 
-    }
-    .popular-users{
-      grid-column: 3/4;
-     
-    }
+    margin: 0 auto;    
   }
 
 </style>
