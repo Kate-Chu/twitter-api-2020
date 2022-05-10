@@ -1,12 +1,14 @@
 @import "variable"; 
 
+.container {
+  width: 1140px;
+}
 %heading {
   color: $heading;
   font-size: 28px;
   font-weight: 700;
   line-height: 26px;
 }
-
 %button-orange {
   background: $orange;
   border-radius: 50px;
@@ -49,6 +51,7 @@
 %form-input {
   font-size: 16px;
   line-height: 26px;
+  color: $form-input;
   padding: 0 10.6px 2px 10.6px;
 }
 %single-ellipsis{

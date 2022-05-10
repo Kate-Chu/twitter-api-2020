@@ -10,7 +10,7 @@
       </div>
 
       <div class="title">
-        <h1 class="signin-form__title">登入 Alphitter</h1>
+        <h1 class="signin-form__title">後台登入</h1>
       </div>
 
       <div class="signin-form__div signin-form__input-account">
@@ -29,12 +29,8 @@
 
       <div class="cancel-signin">
         <p>
-          <router-link class="regist" to="/regist"> 註冊 </router-link>
-        </p>
-        <p>・</p>
-        <p>
-          <router-link class="backstage-signin" to="/admin">
-            後台登入
+          <router-link class="frontstage-signin" to="/signin">
+            前台登入
           </router-link>
         </p>
       </div>
@@ -100,8 +96,7 @@ export default {};
   align-items: center;
   width: 356px;
   height: 36px;
-  .regist,
-  .backstage-signin {
+  .frontstage-signin {
     color: $form-link-blue;
     font-size: 16px;
     font-weight: 400;
