@@ -27,6 +27,12 @@ const routes = [
     name: 'setting',
     component: () => import('../views/Setting.vue')
   },
+  // 後台
+  {
+    path: '/admin',
+    name: 'admin',
+    component: () => import('../views/AdminSignin.vue')
+  },
   {
     path: '*',
     name: 'not-fount',
