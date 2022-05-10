@@ -19,6 +19,7 @@
   import Popular from '../components/Popular.vue'
   import Sidebar from '../components/Sidebar.vue'
   export default {
+    name: 'User',
     components:{
       Popular,
       Sidebar

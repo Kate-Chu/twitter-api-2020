@@ -38,8 +38,10 @@
 </template>
 <script>
 export default {
+  name:'Sidebar',
   data(){
     return{
+      route: 'user',
       isAdmin: false,
       navAdmin:[
          {
@@ -73,10 +75,22 @@ export default {
           iconActive: require('../assets/static/images/orangeSet@2x.png'),
           iconInactive: require('../assets/static/images/setIcon@2x.png')        
         }      
-      ]
-     
+      ]    
     }
-  }
+  },
+  methods:{
+    toggleNavList(){
+      const route = this.$route.name
+      if (route === "amin-tweets" || route === "amin-users"){
+        this.isAdmin = true
+      } else {
+        this.isAdmin = false
+      }
+    }
+  },
+  created(){
+    this.toggleNavList()
+  },
 }
 </script>
 

@@ -23,7 +23,7 @@ export default {
   components:{
      Popular,
      Sidebar
-  }      
+  } 
 }
 </script>
 <style lang="scss" scoped>
