@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Signin from '../views/Signin.vue'
 import NotFound from '../views/NotFound.vue'
+import Twitter from '../views/Twitter.vue'
 
 
 Vue.use(VueRouter)
@@ -26,6 +27,11 @@ const routes = [
     path: '/setting',
     name: 'setting',
     component: () => import('../views/Setting.vue')
+  },
+  {
+    path: '/twitter',
+    name: 'twitter',
+    component: Twitter
   },
   {
     path: '*',
