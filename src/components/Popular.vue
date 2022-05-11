@@ -66,14 +66,12 @@
       height: 40px;
     }
     .following{
-      @extend %button-orange;      
-      width: 96px;     
+      @extend %following;         
     }
     .follow{
-      @extend %button-white;
+      @extend %follow;
       display: none;
       margin-left:28px;
-      width: 64px;
     }
   }
 

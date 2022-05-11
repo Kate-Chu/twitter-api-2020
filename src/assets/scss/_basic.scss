@@ -85,3 +85,17 @@
   width: 0px;
   background: transparent;
 }
+
+// follow button
+%following{
+  @extend %button-orange;
+  width: 96px;
+  height:40px;
+}
+%follow {
+  @extend %button-white;;
+    width: 64px;
+    height: 40px;
+}
+
+
