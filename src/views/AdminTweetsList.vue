@@ -10,23 +10,23 @@
           <div class="tweets-div__tweet--img">
             <img src="../assets/static/images/noImage@2x.png" alt="">
           </div>
-        <div class="tweets-div__tweet--content">
-          <div class="content-info">
-            <p class="content-info-name">Apple</p>
-            <p class="content-info-account">@apple</p>
-            <p class="content-info-time">3 小時</p>
-          </div>
-          <div class="content-text">
-            <p>{{ ellipsisWords() }}</p>
-          </div>
-          <button 
-            class="btn close-btn"
-            @click.stop.prevent="deleteTweet"
-          >
-            <img src="../assets/static/images/close@2x.png" alt="">
-          </button>
-        </div>   
-      </div>
+          <div class="tweets-div__tweet--content">
+            <div class="content-info">
+              <p class="content-info-name">Apple</p>
+              <p class="content-info-account">@apple</p>
+              <p class="content-info-time">3 小時</p>
+            </div>
+            <div class="content-text">
+              <p>{{ ellipsisWords() }}</p>
+            </div>
+            <button 
+              class="btn close-btn"
+              @click.stop.prevent="deleteTweet"
+            >
+              <img src="../assets/static/images/close@2x.png" alt="">
+            </button>
+          </div>   
+        </div>
       </div>
     </div>
   </div>

@@ -35,11 +35,19 @@
         </p>
       </div>
     </form>
+    
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: 'AdminSignin',
+  data () {
+    return {
+      isProcessing: false
+    }
+  },
+}
 </script>
 
 <style lang="scss" scoped>

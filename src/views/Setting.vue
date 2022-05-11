@@ -1,7 +1,6 @@
 <template>
   <div class="container">
-    <!-- TODO: 待加入 Sidebar.vue -->
-    <div>Sidebar</div>
+    <Sidebar />
     <form class="setting-form" action="">
       <div class="title">
         <h1 class="setting-form__title">帳戶設定</h1>
@@ -45,7 +44,14 @@
 </template>
 
 <script>
-export default {};
+import Sidebar from '../components/Sidebar.vue'
+
+export default {
+  name: 'Setting',
+  components: {
+    Sidebar
+  }
+}
 </script>
 
 <style lang="scss" scoped>
