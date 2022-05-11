@@ -7,11 +7,15 @@
         v-for="item in navList"
         :key="item.id"
         class="nav__list__item ">
-        <div class="nav__list__item__wrapper">
-          <img class="active" :src="item.iconActive" alt="">
-          <img class="inactive" :src="item.iconInactive" alt="">
-          <p>{{item.title}}</p>
-        </div>       
+        <router-link
+          :to="item.path"
+        >
+          <div class="nav__list__item__wrapper">
+            <img class="active" :src="item.iconActive" alt="">
+            <img class="inactive" :src="item.iconInactive" alt="">
+            <p>{{item.title}}</p>
+          </div>  
+        </router-link>     
       </li>
       </template>
       <template v-else>
@@ -19,20 +23,25 @@
           v-for="item in navAdmin"
           :key="item.id"
           class="nav__list__item ">
-          <div class="nav__list__item__wrapper">
+          <router-link
+            :to="item.path"
+          >
+            <div class="nav__list__item__wrapper">
             <img class="active" :src="item.iconActive" alt="">
             <img class="inactive" :src="item.iconInactive" alt="">
             <p>{{item.title}}</p>
-          </div>       
+          </div>    
+          </router-link>
+             
         </li> 
       </template>
            
     </ul>  
-    <button>推文</button>  
+    <button v-if="!isAdmin">推文</button>  
     <div class="logout nav__list__item__wrapper ">
       <img class="active" src="../assets/static/images/orangeLogout@2x.png" alt="">
       <img class="inactive" src="../assets/static/images/logout@2x.png" alt="">
-      <p>登出</p>
+      <p @click.stop.prevent="onClickLogout">登出</p>
     </div>       
   </nav>
 </template>
@@ -48,12 +57,14 @@ export default {
           title: '推文清單',
           id:4,
           iconActive: require('../assets/static/images/orangeHome@2x.png'),
-          iconInactive: require('../assets/static/images/home@2x.png')        
+          iconInactive: require('../assets/static/images/home@2x.png'),
+          path:'/admin/tweets'        
         },{
           title: '使用者列表',
           id:5,
           iconActive: require('../assets/static/images/orangeUser@2x.png'),
-          iconInactive: require('../assets/static/images/user@2x.png')        
+          iconInactive: require('../assets/static/images/user@2x.png'),
+          path:'/admin/users'        
         }
       ],
       navList:[
@@ -61,19 +72,22 @@ export default {
           title: '首頁',
           id:1,
           iconActive: require('../assets/static/images/orangeHome@2x.png'),
-          iconInactive: require('../assets/static/images/home@2x.png')        
+          iconInactive: require('../assets/static/images/home@2x.png'),
+          path:'/twitter'        
         },
         {
           title: '個人資料',
           id:2,
           iconActive: require('../assets/static/images/orangeUser@2x.png'),
-          iconInactive: require('../assets/static/images/user@2x.png')        
+          iconInactive: require('../assets/static/images/user@2x.png'), 
+          path:'/users/:id'       
         },
         {
           title: '設定',
           id:3,
           iconActive: require('../assets/static/images/orangeSet@2x.png'),
-          iconInactive: require('../assets/static/images/setIcon@2x.png')        
+          iconInactive: require('../assets/static/images/setIcon@2x.png'),
+          path:'/setting'        
         }      
       ]    
     }
@@ -81,11 +95,14 @@ export default {
   methods:{
     toggleNavList(){
       const route = this.$route.name
-      if (route === "amin-tweets" || route === "amin-users"){
+      if (route === "admin-tweets" || route === "admin-users"){
         this.isAdmin = true
       } else {
         this.isAdmin = false
       }
+    },
+    onClickLogout () {
+      this.$router.push('/signin')
     }
   },
   created(){
