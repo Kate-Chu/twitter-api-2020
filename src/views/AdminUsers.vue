@@ -1,7 +1,6 @@
 <template>
   <div class="container">
-    <!-- TODO: 待加入 Sidebar.vue -->
-    <div>Sidebar</div>
+    <Sidebar />
     <div class="users-div" action="">
       <div class="title">
         <h1 class="users-div__title">使用者列表</h1>
@@ -55,7 +54,12 @@
 </template>
 
 <script>
+import Sidebar from '../components/Sidebar.vue'
+
 export default {
+  components: { 
+    Sidebar 
+  },
   methods: {
   },
 };

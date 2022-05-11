@@ -1,7 +1,6 @@
 <template>
   <div class="container">
-    <!-- TODO: 待加入 Sidebar.vue -->
-    <div>Sidebar</div>
+    <Sidebar />
     <div class="tweets-div" action="">
       <div class="title">
         <h1 class="tweets-div__title">推文清單</h1>
@@ -30,15 +29,20 @@
       </div>
       </div>
     </div>
-    <div></div>
   </div>
 </template>
 
 <script>
+import Sidebar from '../components/Sidebar.vue'
+
 export default {
+  components: { 
+    Sidebar 
+  },
   data () {
     return {
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius sed suscipit incidunt veniam ipsa, laboriosam quo fugit earum nisi sunt? Nesciunt sint nam vitae facilis quam nemo, laboriosam aspernatur distinctio.loremLorem ipsum dolor sit amet consectetur adipisicing elit. Eius sed suscipit incidunt veniam ipsa, laboriosam quo fugit earum nisi sunt? Nesciunt sint nam vitae facilis quam nemo, laboriosam aspernatur distinctio.lorem'
+      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius sed suscipit incidunt veniam ipsa, laboriosam quo fugit earum nisi sunt? Nesciunt sint nam vitae facilis quam nemo, laboriosam aspernatur distinctio.loremLorem ipsum dolor sit amet consectetur adipisicing elit. Eius sed suscipit incidunt veniam ipsa, laboriosam quo fugit earum nisi sunt? Nesciunt sint nam vitae facilis quam nemo, laboriosam aspernatur distinctio.lorem',
+      isAdmin: true,
     }
   },
   methods: {

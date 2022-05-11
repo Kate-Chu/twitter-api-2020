@@ -7,7 +7,10 @@
         v-for="item in navList"
         :key="item.id"
         class="nav__list__item ">
-        <div class="nav__list__item__wrapper">
+        <div 
+          class="nav__list__item__wrapper"
+          @click.stop.prevent="onClickTab(item.title)"
+        >
           <img class="active" :src="item.iconActive" alt="">
           <img class="inactive" :src="item.iconInactive" alt="">
           <p>{{item.title}}</p>
@@ -19,7 +22,10 @@
           v-for="item in navAdmin"
           :key="item.id"
           class="nav__list__item ">
-          <div class="nav__list__item__wrapper">
+          <div 
+            class="nav__list__item__wrapper"
+            @click.stop.prevent="onClickTab(item.title)"
+          >
             <img class="active" :src="item.iconActive" alt="">
             <img class="inactive" :src="item.iconInactive" alt="">
             <p>{{item.title}}</p>
@@ -28,11 +34,11 @@
       </template>
            
     </ul>  
-    <button>推文</button>  
+    <button v-if="!isAdmin">推文</button>  
     <div class="logout nav__list__item__wrapper ">
       <img class="active" src="../assets/static/images/orangeLogout@2x.png" alt="">
       <img class="inactive" src="../assets/static/images/logout@2x.png" alt="">
-      <p>登出</p>
+      <p @click.stop.prevent="onClickLogout">登出</p>
     </div>       
   </nav>
 </template>
@@ -81,11 +87,24 @@ export default {
   methods:{
     toggleNavList(){
       const route = this.$route.name
-      if (route === "amin-tweets" || route === "amin-users"){
+      if (route === "admin-tweets" || route === "admin-users"){
         this.isAdmin = true
       } else {
         this.isAdmin = false
       }
+    },
+    onClickTab (title) {
+      const route = this.$route.path
+      if (title === '推文清單' && route === "/admin/users") {
+        this.$router.push('/admin/tweets')
+      } else if (title === '使用者列表' && route === "/admin/tweets") {
+        this.$router.push('/admin/users')
+      } else {
+        return
+      }
+    },
+    onClickLogout () {
+      this.$router.push('/signin')
     }
   },
   created(){
