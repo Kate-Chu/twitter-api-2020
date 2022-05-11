@@ -38,6 +38,7 @@
     h1{
       border-bottom: 1px solid #E6ECF0;
       padding: 24px;
+      font-family: $main-font;
     }
     .popular__list__item{   
       display: flex;
@@ -45,6 +46,7 @@
       .item-account{
         flex: 1;
         width: 74px;
+        padding-right: 2px;
         margin-left: 8px;       
         font-family: $main-font;        
         .name{
