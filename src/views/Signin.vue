@@ -10,7 +10,18 @@
       </div>
 
       <div class="title">
-        <h1 class="signin-form__title">登入 Alphitter</h1>
+        <h1 
+          v-if="frontStage"
+          class="signin-form__title"
+        >
+          登入 Alphitter
+        </h1>
+        <h1 
+          v-else
+          class="signin-form__title"
+        >
+          後台登入
+        </h1>
       </div>
 
       <div class="signin-form__div signin-form__input-account">
@@ -27,15 +38,30 @@
         登入
       </button>
 
-      <div class="cancel-signin">
+      <div 
+        v-if="frontStage"
+        class="cancel-signin"
+      >
         <p>
           <router-link class="regist" to="/regist"> 註冊 </router-link>
         </p>
         <p>・</p>
-        <p>
-          <router-link class="backstage-signin" to="/admin">
-            後台登入
-          </router-link>
+        <p 
+          class="backstage-signin" 
+          @click="toggleRoute"
+        >
+          後台登入
+        </p>
+      </div>
+      <div 
+        v-else
+        class="cancel-signin"
+      >
+        <p
+          class="frontstage-signin" 
+          @click="toggleRoute"
+        >
+          前台登入
         </p>
       </div>
     </form>
@@ -43,7 +69,31 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: 'Signin',
+  data () {
+    return {
+      isProcessing: false,
+      frontStage: true
+    }
+  },
+  // beforeRouteUpdate(to, from, next) {
+  //   console.log({to, from})
+  //   next()
+  // },
+  methods: {
+    toggleRoute () {
+      const route = this.$route.path
+      if (route === '/signin') {
+        this.frontStage = true
+        this.$router.push('/admin')
+      } else if (route === '/admin') {
+        this.frontStage = false
+        this.$router.push('/signin')
+      }
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -101,7 +151,8 @@ export default {};
   width: 356px;
   height: 36px;
   .regist,
-  .backstage-signin {
+  .backstage-signin,
+  .frontstage-signin {
     color: $form-link-blue;
     font-size: 16px;
     font-weight: 400;

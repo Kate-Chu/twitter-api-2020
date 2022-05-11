@@ -32,7 +32,8 @@ const routes = [
   {
     path: '/admin',
     name: 'admin',
-    component: () => import('../views/AdminSignin.vue')
+    // component: () => import('../views/Signin.vue')
+    component: Signin
   },
   {
     path: '/twitter',

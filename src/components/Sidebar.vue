@@ -1,5 +1,6 @@
 <template>
   <nav id="sidebar">  
+    <TweetModal :d-none="dNone" @tweet-modal="tweetModal" />
     <ul class="nav__list">
       <img class="logo" src="../assets/static/images/navLogo@2x.png" alt="">
       <template v-if="!isAdmin">
@@ -37,7 +38,12 @@
       </template>
            
     </ul>  
-    <button v-if="!isAdmin">推文</button>  
+    <button 
+      v-if="!isAdmin"
+      @click.stop.prevent="tweetModal"
+    >
+      推文
+    </button>  
     <div class="logout nav__list__item__wrapper ">
       <img class="active" src="../assets/static/images/orangeLogout@2x.png" alt="">
       <img class="inactive" src="../assets/static/images/logout@2x.png" alt="">
@@ -46,8 +52,13 @@
   </nav>
 </template>
 <script>
+import TweetModal from "../components/TweetModal";
+
 export default {
   name:'Sidebar',
+  components: {
+    TweetModal
+  },
   data(){
     return{
       route: 'user',
@@ -89,7 +100,8 @@ export default {
           iconInactive: require('../assets/static/images/setIcon@2x.png'),
           path:'/setting'        
         }      
-      ]    
+      ],
+      dNone: true,
     }
   },
   methods:{
@@ -103,7 +115,10 @@ export default {
     },
     onClickLogout () {
       this.$router.push('/signin')
-    }
+    },
+    tweetModal() {
+      this.dNone = !this.dNone;
+    },
   },
   created(){
     this.toggleNavList()
