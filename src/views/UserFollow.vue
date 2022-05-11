@@ -3,9 +3,9 @@
     <div class="container">
       <div class="row">
         <div class="col-2 sidebar">
-      <Sidebar />
-      </div>
-      <div class="col-7 content-container">
+          <Sidebar />
+        </div>
+        <div class="col-7 content-container">
           <div class="title">
             <img class="title__item " src="../assets/static/images/leftArrow@2x.png" alt="">
             <div class= "title__item user">
@@ -24,11 +24,11 @@
               </template>
             </NavTab>
           </div>            
-        <router-view/>
-      </div>
-      <div class="col-3  popular-users">
-        <Popular />
-      </div>
+          <router-view/>
+        </div>
+        <div class="col-3  popular-users">
+          <Popular />
+        </div>
       </div>      
     </div>  
   </main>
@@ -49,7 +49,7 @@
         navList:[
           { id: 1,
             title: '追蹤者',
-            path: '/users/:id/follow/follower'
+            path: '/users/:id/follow'
           },
           { 
             id: 2,
@@ -74,6 +74,7 @@
     height: 75px;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid $border-grey;
     img{
       width: 17px;
       height: 14px;
@@ -95,6 +96,7 @@
   }
   .nav-container{
     display: flex;
+    height: 54px;
     border-bottom: 1px solid $border-grey;
   }
 

@@ -40,12 +40,12 @@ const routes = [
     component: Twitter
   },
   {
-    path: '/users/:id',
-    name: 'user',
+    path: '/users/:id/tweets',
+    name: 'user',  
     component: () => import('../views/User.vue'),
     children:[
       {
-        path:'tweets',
+        path:'',
         component: () => import('../views/UserTweets.vue')
       },
       {
@@ -65,16 +65,18 @@ const routes = [
     component: () => import('../views/UserFollow.vue'),
     children: [
       {
-        path: 'follower',
+        path: '',
         component: () => import('../views/UserFollower.vue')
       },
       {
         path: 'following',
         component: () => import('../views/UserFollowing.vue')
-      }
-    
+      }  
     ]
-
+  },
+  {
+    path:'/users/:id',
+    redirect:'/users/:id/tweets'
   },
   {
     path: '/admin/tweets',

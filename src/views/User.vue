@@ -57,12 +57,12 @@
           { 
             id: 2,
             title: '回覆',
-            path: '/users/:id/replies'
+            path: '/users/:id/tweets/replies'
           },
            { 
             id: 3,
             title: '喜歡的內容',
-            path: '/users/:id/likes'
+            path: '/users/:id/tweets/likes'
           }
         ]
       }

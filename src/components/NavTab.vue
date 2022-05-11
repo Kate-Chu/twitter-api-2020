@@ -7,8 +7,7 @@
 </template>
 <style lang="scss" scoped>
   @import "../assets/scss/_basic.scss";
-  .nav__tab{
-    margin-top: 30px;    
+  .nav__tab{  
     cursor: pointer;
     &__list__item{
       padding: 15px 0;  

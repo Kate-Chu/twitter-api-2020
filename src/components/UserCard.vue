@@ -21,10 +21,8 @@
           <div class="group-item follow">
             <button class="follow">跟隨</button>
           </div>
-          <div class="group-item">
-           
-              <button class="following">正在跟隨</button>
-            
+          <div class="group-item">           
+              <button class="following">正在跟隨</button>           
           </div>
           <div class="group-item">
             <button class="edit">編輯個人資料</button>
@@ -37,14 +35,14 @@
         <p class="intro">It is a long established fact that a reader that a reader.</p>
         <div class="user__follow">
           <router-link
-            to="/users/:id/follow/follower"
+            to="/users/:id/follow/following"
           >
             <p class="user__follow__item following">
               <span class="num">30</span>個<span class="status">跟隨中</span>
             </p>
           </router-link>
           <router-link
-            to="/users/:id/follow/follower"
+            to="/users/:id/follow"
           >
             <p class="user__follow__item follower">
               <span class="num">30</span>個<span class="status">跟隨者</span>
@@ -58,6 +56,9 @@
 <style lang="scss" scoped>
   @import "../assets/scss/_basic.scss";
   #user{
+    .user__container{
+      padding-bottom: 10px;
+    }
     .user__image-container{
       position: relative;
       .background-wrapper{
@@ -114,6 +115,7 @@
       }      
     }
     .user__container__info{ 
+  
       margin-left: 1rem;  
       .user__follow{
         padding-top: 8px;
@@ -140,6 +142,7 @@
       .intro{
         @extend %tweet-text;
         line-height: 22px;
+        margin-top: 6px;
       }
 
     }
