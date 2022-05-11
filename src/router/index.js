@@ -42,7 +42,39 @@ const routes = [
   {
     path: '/users/:id',
     name: 'user',
-    component: () => import('../views/User.vue')
+    component: () => import('../views/User.vue'),
+    children:[
+      {
+        path:'tweets',
+        component: () => import('../views/UserTweets.vue')
+      },
+      {
+        path: 'replies',
+        component: () => import('../views/UserReply.vue')
+      },
+      {
+        path: 'likes',
+        component: () => import('../views/UserLike.vue')
+      },
+
+    ]
+  },
+  {
+    path: '/users/:id/follow',
+    name: 'user',
+    component: () => import('../views/UserFollow.vue'),
+    children: [
+      {
+        path: 'follower',
+        component: () => import('../views/UserFollower.vue')
+      },
+      {
+        path: 'following',
+        component: () => import('../views/UserFollowing.vue')
+      }
+    
+    ]
+
   },
   {
     path: '/admin/tweets',

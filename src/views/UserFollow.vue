@@ -1,5 +1,5 @@
 <template>
-  <main>
+   <main>
     <div class="container">
       <div class="row">
         <div class="col-2 sidebar">
@@ -12,19 +12,18 @@
               <p class= "name">Jone Doe</p>
               <p class= "tweet-num">45推文</p>
             </div>          
-          </div>     
-        <UserCard />
-        <div class="nav-container">       
-        <NavTab v-for="item in navList" :key="item.id">
-          <template v-slot:nav-item> 
-            <router-link
-              :to="item.path"
-            >
-            <p>{{item.title}}</p> 
-            </router-link>         
-          </template>
-        </NavTab>
-        </div>
+          </div>
+          <div class="nav-container">
+            <NavTab v-for="item in navList" :key="item.id">
+              <template v-slot:nav-item> 
+                <router-link
+                  :to="item.path"
+                >
+                <p>{{item.title}}</p> 
+                </router-link>         
+              </template>
+            </NavTab>
+          </div>            
         <router-view/>
       </div>
       <div class="col-3  popular-users">
@@ -37,34 +36,28 @@
 <script>
   import Popular from '../components/Popular.vue'
   import Sidebar from '../components/Sidebar.vue'
-  import UserCard from '../components/UserCard.vue'
   import NavTab from './../components/NavTab.vue'
   export default {
     name: 'User',
     components:{
       Popular,
       Sidebar,
-      UserCard,
       NavTab
     },
     data(){
       return {
         navList:[
           { id: 1,
-            title: '推文',
-            path: '/users/:id/tweets'
+            title: '追蹤者',
+            path: '/users/:id/follow/follower'
           },
           { 
             id: 2,
-            title: '回覆',
-            path: '/users/:id/replies'
-          },
-           { 
-            id: 3,
-            title: '喜歡的內容',
-            path: '/users/:id/likes'
+            title: '正在追隨',
+            path: '/users/:id/follow/following'
           }
         ]
+       
       }
     }      
   }
@@ -73,7 +66,8 @@
  @import "../assets/scss/_basic.scss";
   .content-container{
     padding:0;
-    border: 1px solid $border-grey;   
+    border: 1px solid $border-grey;
+    
   }
   .title{
     padding-left: 28px;
@@ -94,7 +88,8 @@
          @extend %tweet-account;
          font-weight: 500;
          font-size:13px;
-         line-height: 18px;         
+         line-height: 18px;
+         
       }
     }
   }
@@ -102,4 +97,5 @@
     display: flex;
     border-bottom: 1px solid $border-grey;
   }
+
 </style>

@@ -22,7 +22,9 @@
             <button class="follow">跟隨</button>
           </div>
           <div class="group-item">
-            <button class="following">正在跟隨</button>
+           
+              <button class="following">正在跟隨</button>
+            
           </div>
           <div class="group-item">
             <button class="edit">編輯個人資料</button>
@@ -32,14 +34,22 @@
       <div class="user__container__info">
         <p class="name">John Doe</p>
         <p class="id">@johndoe</p>
-        <p class="intro">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+        <p class="intro">It is a long established fact that a reader that a reader.</p>
         <div class="user__follow">
-          <p class="user__follow__item following">
-            <span class="num">30</span>個<span class="status">跟隨中</span>
-          </p>
-          <p class="user__follow__item follower">
-            <span class="num">30</span>個<span class="status">跟隨者</span>
-          </p>
+          <router-link
+            to="/users/:id/follow/follower"
+          >
+            <p class="user__follow__item following">
+              <span class="num">30</span>個<span class="status">跟隨中</span>
+            </p>
+          </router-link>
+          <router-link
+            to="/users/:id/follow/follower"
+          >
+            <p class="user__follow__item follower">
+              <span class="num">30</span>個<span class="status">跟隨者</span>
+            </p>
+          </router-link>
         </div>
       </div>
     </div>        
@@ -80,6 +90,7 @@
       }
       .group-item{
         padding: 1rem 0.5rem;
+        cursor: pointer;
       }
       .notify {
           display: none;
@@ -112,6 +123,7 @@
           color: $font-small;
         }
         &__item{
+          cursor: pointer;
           padding-right: 20px;
           .num{
             font-family: $number-font;
