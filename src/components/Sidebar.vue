@@ -7,14 +7,15 @@
         v-for="item in navList"
         :key="item.id"
         class="nav__list__item ">
-        <div 
-          class="nav__list__item__wrapper"
-          @click.stop.prevent="onClickTab(item.title)"
+        <router-link
+          :to="item.path"
         >
-          <img class="active" :src="item.iconActive" alt="">
-          <img class="inactive" :src="item.iconInactive" alt="">
-          <p>{{item.title}}</p>
-        </div>       
+          <div class="nav__list__item__wrapper">
+            <img class="active" :src="item.iconActive" alt="">
+            <img class="inactive" :src="item.iconInactive" alt="">
+            <p>{{item.title}}</p>
+          </div>  
+        </router-link>     
       </li>
       </template>
       <template v-else>
@@ -22,14 +23,16 @@
           v-for="item in navAdmin"
           :key="item.id"
           class="nav__list__item ">
-          <div 
-            class="nav__list__item__wrapper"
-            @click.stop.prevent="onClickTab(item.title)"
+          <router-link
+            :to="item.path"
           >
+            <div class="nav__list__item__wrapper">
             <img class="active" :src="item.iconActive" alt="">
             <img class="inactive" :src="item.iconInactive" alt="">
             <p>{{item.title}}</p>
-          </div>       
+          </div>    
+          </router-link>
+             
         </li> 
       </template>
            
@@ -54,12 +57,14 @@ export default {
           title: '推文清單',
           id:4,
           iconActive: require('../assets/static/images/orangeHome@2x.png'),
-          iconInactive: require('../assets/static/images/home@2x.png')        
+          iconInactive: require('../assets/static/images/home@2x.png'),
+          path:'/admin/tweets'        
         },{
           title: '使用者列表',
           id:5,
           iconActive: require('../assets/static/images/orangeUser@2x.png'),
-          iconInactive: require('../assets/static/images/user@2x.png')        
+          iconInactive: require('../assets/static/images/user@2x.png'),
+          path:'/admin/users'        
         }
       ],
       navList:[
@@ -67,19 +72,22 @@ export default {
           title: '首頁',
           id:1,
           iconActive: require('../assets/static/images/orangeHome@2x.png'),
-          iconInactive: require('../assets/static/images/home@2x.png')        
+          iconInactive: require('../assets/static/images/home@2x.png'),
+          path:'/twitter'        
         },
         {
           title: '個人資料',
           id:2,
           iconActive: require('../assets/static/images/orangeUser@2x.png'),
-          iconInactive: require('../assets/static/images/user@2x.png')        
+          iconInactive: require('../assets/static/images/user@2x.png'), 
+          path:'/users/:id'       
         },
         {
           title: '設定',
           id:3,
           iconActive: require('../assets/static/images/orangeSet@2x.png'),
-          iconInactive: require('../assets/static/images/setIcon@2x.png')        
+          iconInactive: require('../assets/static/images/setIcon@2x.png'),
+          path:'/setting'        
         }      
       ]    
     }
@@ -91,16 +99,6 @@ export default {
         this.isAdmin = true
       } else {
         this.isAdmin = false
-      }
-    },
-    onClickTab (title) {
-      const route = this.$route.path
-      if (title === '推文清單' && route === "/admin/users") {
-        this.$router.push('/admin/tweets')
-      } else if (title === '使用者列表' && route === "/admin/tweets") {
-        this.$router.push('/admin/users')
-      } else {
-        return
       }
     },
     onClickLogout () {
