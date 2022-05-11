@@ -2,7 +2,10 @@
   <main :class="{'d-none': dNone}">
     <div class="container">
       <div class="modal row">
-        <form class="modal-content col-6" action="">
+        <form 
+          class="modal-content col-6" 
+          action=""
+        >
           <div class="modal-content-cancel">
             <button class="btn" @click.stop.prevent="handleCloseBtn">
               <img src="../assets/static/images/orangeClose@2x.png" alt="">
@@ -15,8 +18,8 @@
             name="tweet"  
             placeholder="有什麼新鮮事？" 
           >
-            
           </textarea>
+          <p class="modal-alert">字數不可超過 140 字</p>
           <button 
             class="btn modal-tweet"
             @click.stop.prevent
@@ -45,7 +48,7 @@ data () {
 },
 methods: {
   handleCloseBtn() {
-    this.$emit('toggle-modal')
+    this.$emit('tweet-modal')
     this.text = ''
   }
 }
@@ -68,6 +71,7 @@ main{
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 100;
 }
 .modal-content {
   // width: 634px;
@@ -78,6 +82,7 @@ main{
   margin-top: 56px;
   position: relative;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  
   &-cancel {
     width: 100%;
     border-bottom: 1px solid $border-grey;
@@ -139,5 +144,13 @@ textarea {
   bottom: 16px;
   right: 16px;
 }
-
+.modal-alert {
+  color: $modal-alert;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 15px;
+  position: absolute;
+  bottom: 27px;
+  right: 108px;
+}
 </style>

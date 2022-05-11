@@ -16,7 +16,11 @@
         </div>
         <div class="content-counts">
           <div class="content-counts-reply">
-            <img src="../assets/static/images/reply@2x.png" alt="">
+            <img 
+              src="../assets/static/images/reply@2x.png" 
+              alt=""
+              @click.stop.prevent="replyModal"
+            >
             <span>13</span>
           </div>
           <div class="content-counts-like">
@@ -26,8 +30,34 @@
         </div>
       </div>   
     </div>
+    <ReplyModal 
+      :d-none="dNone"
+      @reply-modal="replyModal"
+    />
   </div>
 </template>
+
+<script>
+import ReplyModal from '../components/ReplyModal'
+
+export default {
+  name: 'NewestTweets',
+  components: {
+    ReplyModal
+  },
+  data () {
+    return {
+      dNone: true,
+    }
+  },
+  methods: {
+    replyModal () {
+      this.dNone = !this.dNone;
+    }
+  }
+}
+</script>
+
 
 <style lang="scss" scoped>
 @import "../assets/scss/basic.scss";
@@ -102,6 +132,9 @@
       width: 16px;
       height: 16px;
       margin-right: 8px;
+    }
+    img:hover {
+      cursor: pointer;
     }
     span {
       color: $font-small;
