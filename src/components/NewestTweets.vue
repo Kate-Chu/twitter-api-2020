@@ -112,6 +112,7 @@ export default {
     @extend %tweet-text;
     margin-top: 8px;
     margin-right: 82px;
+    cursor: pointer;
   }
   .content-counts {
     display: flex;

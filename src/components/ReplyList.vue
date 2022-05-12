@@ -38,24 +38,17 @@
           alt=""
         >
       </div>
-    </div>   
-    <ReplyListCard />
-    <ReplyModal 
-      :d-none="dNone"
-      @reply-modal="replyModal"
-    />
+    </div> 
   </div>
 </template>
 
 <script>
-import ReplyListCard from '../components/ReplyListCard'
-import ReplyModal from '../components/ReplyModal'
+
 
 export default {
 name: 'ReplyList',
 components: {
-  ReplyListCard,
-  ReplyModal
+  
 },
 data () {
   return {

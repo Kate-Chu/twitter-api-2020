@@ -62,7 +62,7 @@ props: {
 },
 data () {
   return {
-    text: ''
+    text: '',
   }
 },
 methods: {

@@ -33,7 +33,7 @@
         <p class="content-info-time">{{ item.time }}</p>
       </template>
       <template v-slot:text>
-        <p>{{ item.text }}</p>
+        <p @click.stop.prevent="onClickText">{{ item.text }}</p>
       </template>
       <template v-slot:replyCounts>
         <img
@@ -96,6 +96,9 @@ export default {
   methods: {
     onClickAvatar () {
       this.$router.push('/users/:id')
+    },
+    onClickText () {
+      this.$router.push('/twitter/replies')
     },
     tweetModal() {
       this.dNone = !this.dNone;
