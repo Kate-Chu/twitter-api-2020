@@ -20,16 +20,12 @@
          {{tweet.text}}
          <div class="icons">
         <div class="icon-wrapper">
-          <slot name="reply-icon" icon="reply-icon">
           <img src="../assets/static/images/reply@2x.png" alt="">
-          </slot>
-          <p class="count"><slot name="reply-count">{{tweet.replyNum}}</slot></p>
+          <p class="count">{{tweet.replyNum}}</p>
         </div>
         <div class="icon-wrapper">
-          <slot name="like-icon" icon="like-icon">
           <img src="../assets/static/images/like@2x.png" alt="">
-          </slot>
-          <p class="count"><slot name="like-count">{{tweet.likeNum}}</slot></p>
+          <p class="count">{{tweet.likeNum}}</p>
         </div>     
       </div>
       </template>

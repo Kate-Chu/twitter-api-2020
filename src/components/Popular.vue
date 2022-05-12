@@ -39,6 +39,7 @@
       border-bottom: 1px solid #E6ECF0;
       padding: 24px;
       font-family: $main-font;
+      font-size: 24px;
     }
     .popular__list__item{   
       display: flex;

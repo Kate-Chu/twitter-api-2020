@@ -54,7 +54,7 @@ const routes = [
   },
   {
     path: '/users/:id/tweets',
-    name: 'user',  
+    name: 'user-tweets',  
     component: () => import('../views/User.vue'),
     children:[
       {
@@ -74,7 +74,7 @@ const routes = [
   },
   {
     path: '/users/:id/follow',
-    name: 'user',
+    name: 'user-follow',
     component: () => import('../views/UserFollow.vue'),
     children: [
       {

@@ -7,16 +7,24 @@
     </div>
     <div class="follow__card__item">
       <div class="account">
-        <p class="name"><slot name="name">123</slot></p>
+        <p class="name"><slot name="name"></slot></p>
         <slot name="btn"></slot>
       </div>
       <p class="text">
-        <slot name="text" >123123</slot>
+        <slot name="text" ></slot>
       </p>    
     </div>    
   </div>
-
+  
 </template>
+<script>
+
+export default {
+  
+  
+}
+</script>
+
 <style lang="scss" scoped>
   @import "../assets/scss/_basic.scss";
    .follow__card{
