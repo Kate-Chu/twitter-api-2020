@@ -73,7 +73,7 @@
 
     </div>
     <ReplyModal 
-      :d-none="dNoneReplyModal"
+      :d-none-reply-modal="dNoneReplyModal"
       @reply-modal="replyModal"
     />
   </div>

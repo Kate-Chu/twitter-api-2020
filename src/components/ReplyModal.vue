@@ -1,5 +1,5 @@
 <template>
-  <main :class="{'d-none': dNone}">
+  <main :class="{'d-none': dNoneReplyModal}">
     <div class="container">
       <div class="modal row">
         <form class="modal-content col-6" action="">
@@ -55,7 +55,7 @@
 export default {
 name: 'ReplyModal',
 props: {
-  dNone: {
+  dNoneReplyModal: {
     type: Boolean,
     default: true
   }

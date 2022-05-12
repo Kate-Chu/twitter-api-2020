@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    <form class="signin-form" action="">
+    <form 
+      class="signin-form"
+      @submit.prevent.stop="handleSubmit"
+    >
       <div class="logo">
         <img
           class="signin-form__logo-img"
@@ -26,12 +29,20 @@
 
       <div class="signin-form__div signin-form__input-account">
         <label for="">帳號</label>
-        <input type="text" placeholder="請輸入帳號" />
+        <input 
+          id="account" v-model="account" name="account" 
+          type="text" placeholder="請輸入帳號" 
+          required autofocus
+        />
       </div>
 
       <div class="signin-form__div signin-form__input-password">
         <label for="">密碼</label>
-        <input type="text" placeholder="請輸入密碼" />
+        <input 
+          id="password" v-model="password" name="password"
+          type="password" 
+          placeholder="請輸入密碼" 
+        />
       </div>
 
       <button class="btn btn-signin" type="submit" :disabled="isProcessing">
@@ -69,12 +80,17 @@
 </template>
 
 <script>
+import authorizationAPI from './../apis/authorization'
+import {Toast} from './../utils/helpers'
+
 export default {
   name: 'Signin',
   data () {
     return {
+      account: '',
+      password: '',
       isProcessing: false,
-      frontStage: true
+      frontStage: true,
     }
   },
   // beforeRouteUpdate(to, from, next) {
@@ -82,6 +98,49 @@ export default {
   //   next()
   // },
   methods: {
+    async handleSubmit() {
+      try {
+        this.isProcessing = true
+
+        if ( !this.account || !this.password ) {
+          Toast.fire({
+            icon: 'warning',
+            title: '請輸入帳密'
+          })
+          return
+        } 
+
+        const { data } = await authorizationAPI.signIn({
+          account: this.account,
+          password: this.password
+        })
+
+        console.log(data)
+        
+        if ( data.status !== 'success' ) {
+          throw new Error(data.message)
+        }
+
+        // 存 token
+        localStorage.setItem('token', data.token)
+        
+        // 登入成功
+        this.$router.push('/twitter')
+      } catch (error) {
+        // 按鈕可以重複送出
+        this.isProcessing = false
+
+        // 將密碼欄位清空
+        this.password = ''
+
+        // 給使用者的提示
+        Toast.fire({
+          icon: 'warning',
+          title: '請確認您輸入了正確的帳號密碼'
+        })
+        console.log('Error', error)
+      }
+    },
     toggleRoute () {
       const route = this.$route.path
       if (route === '/signin') {
