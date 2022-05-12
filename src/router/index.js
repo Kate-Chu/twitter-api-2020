@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Signin from '../views/Signin.vue'
 import NotFound from '../views/NotFound.vue'
 import Twitter from '../views/Twitter.vue'
-
+import TwitterMain from '../views/TwitterMain.vue'
 
 Vue.use(VueRouter)
 
@@ -32,13 +32,25 @@ const routes = [
   {
     path: '/admin',
     name: 'admin',
-    // component: () => import('../views/Signin.vue')
     component: Signin
   },
+  // 前台
   {
     path: '/twitter',
-    name: 'twitter',
-    component: Twitter
+    name: 'twitter-main',
+    component: TwitterMain,
+    children: [
+      {
+        path: '',
+        name: 'twitter',
+        component: Twitter
+      },
+      {
+        path: 'replies',
+        name: 'twitter-replies',
+        component: () => import('../views/TwitterReply.vue')
+      }
+    ]
   },
   {
     path: '/users/:id/tweets',

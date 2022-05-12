@@ -57,7 +57,7 @@ name: 'ReplyModal',
 props: {
   dNone: {
     type: Boolean,
-    default: false
+    default: true
   }
 },
 data () {

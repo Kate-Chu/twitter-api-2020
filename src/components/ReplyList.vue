@@ -40,17 +40,33 @@
       </div>
     </div>   
     <ReplyListCard />
+    <ReplyModal 
+      :d-none="dNone"
+      @reply-modal="replyModal"
+    />
   </div>
 </template>
 
 <script>
 import ReplyListCard from '../components/ReplyListCard'
+import ReplyModal from '../components/ReplyModal'
 
 export default {
 name: 'ReplyList',
 components: {
-  ReplyListCard
+  ReplyListCard,
+  ReplyModal
 },
+data () {
+  return {
+    dNone: true,
+  }
+},
+methods: {
+  replyModal () {
+    this.dNone = !this.dNone;
+  }
+}
 }
 </script>
 
@@ -123,6 +139,7 @@ components: {
   }
   img {
     @extend %icon-30;
+    cursor: pointer;
   }
   &-reply {
     margin-right: 128px;
