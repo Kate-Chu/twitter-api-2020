@@ -1,60 +1,50 @@
 <template>
   <div class="tweets-div__tweets scrollbar">
-    <!-- TODO: v-for -->
     <div class="tweets-div__tweet">
       <div class="tweets-div__tweet--img">
-        <img src="../assets/static/images/noImage@2x.png" alt="">
+        <slot name="avatar">
+          <img src="../assets/static/images/noImage@2x.png" alt="" />
+        </slot>
       </div>
       <div class="tweets-div__tweet--content">
         <div class="content-info">
-          <p class="content-info-name">Apple</p>
-          <p class="content-info-account">@apple</p>
-          <p class="content-info-time">3 小時</p>
+          <slot name="name">
+            <p class="content-info-name">名字</p>
+          </slot>
+          <slot name="account">
+            <p class="content-info-account">@帳號</p>
+          </slot>
+          <slot name="time">
+            <p class="content-info-time">時間</p>
+          </slot>
         </div>
         <div class="content-text">
-          <p>Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. </p>
+          <slot name="text">
+            <p>內容</p>
+          </slot>
         </div>
         <div class="content-counts">
           <div class="content-counts-reply">
-            <img 
-              src="../assets/static/images/reply@2x.png" 
-              alt=""
-              @click.stop.prevent="replyModal"
-            >
-            <span>13</span>
+            <slot name="replyCounts">
+              <img src="" alt="">圖片
+              <span>回覆數</span>
+            </slot>
           </div>
           <div class="content-counts-like">
-            <img src="../assets/static/images/like@2x.png" alt="">
-            <span>76</span>
+            <slot name="likeCounts">
+              <img src="" alt="">
+              <span>按讚數</span>
+            </slot>
           </div>
         </div>
-      </div>   
+      </div>
     </div>
-    <ReplyModal 
-      :d-none="dNone"
-      @reply-modal="replyModal"
-    />
   </div>
 </template>
 
 <script>
-import ReplyModal from '../components/ReplyModal'
-
 export default {
-  name: 'NewestTweets',
-  components: {
-    ReplyModal
-  },
-  data () {
-    return {
-      dNone: true,
-    }
-  },
-  methods: {
-    replyModal () {
-      this.dNone = !this.dNone;
-    }
-  }
+  name: "NewestTweets",
 }
 </script>
 
@@ -92,7 +82,7 @@ export default {
     width: 8px;
   }
   &::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 1px $scrollbar; 
+    box-shadow: inset 0 0 1px $scrollbar;
     border-radius: 4px;
   }
   &::-webkit-scrollbar-thumb {
@@ -109,11 +99,12 @@ export default {
       @extend %tweet-name;
       margin-right: 8px;
     }
-    &-account, &-time {
+    &-account,
+    &-time {
       @extend %tweet-account;
     }
     &-account::after {
-      content: '・';
+      content: "・";
       font-weight: 700;
     }
   }
@@ -121,10 +112,12 @@ export default {
     @extend %tweet-text;
     margin-top: 8px;
     margin-right: 82px;
+    cursor: pointer;
   }
   .content-counts {
     display: flex;
-    &-reply, &-like {
+    &-reply,
+    &-like {
       display: flex;
       margin-top: 9px;
     }
@@ -146,5 +139,4 @@ export default {
     }
   }
 }
-
 </style>

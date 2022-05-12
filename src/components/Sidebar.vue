@@ -44,10 +44,16 @@
     >
       推文
     </button>  
-    <div class="logout nav__list__item__wrapper ">
+    <div 
+      class="logout nav__list__item__wrapper"
+      @click.stop.prevent="onClickLogout"
+    >
       <img class="active" src="../assets/static/images/orangeLogout@2x.png" alt="">
-      <img class="inactive" src="../assets/static/images/logout@2x.png" alt="">
-      <p @click.stop.prevent="onClickLogout">登出</p>
+      <img 
+        class="inactive" 
+        src="../assets/static/images/logout@2x.png" alt=""
+      >
+      <p>登出</p>
     </div>       
   </nav>
 </template>

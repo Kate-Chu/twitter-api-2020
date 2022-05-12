@@ -57,12 +57,12 @@ name: 'ReplyModal',
 props: {
   dNone: {
     type: Boolean,
-    default: false
+    default: true
   }
 },
 data () {
   return {
-    text: ''
+    text: '',
   }
 },
 methods: {

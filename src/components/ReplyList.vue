@@ -38,19 +38,28 @@
           alt=""
         >
       </div>
-    </div>   
-    <ReplyListCard />
+    </div> 
   </div>
 </template>
 
 <script>
-import ReplyListCard from '../components/ReplyListCard'
+
 
 export default {
 name: 'ReplyList',
 components: {
-  ReplyListCard
+  
 },
+data () {
+  return {
+    dNone: true,
+  }
+},
+methods: {
+  replyModal () {
+    this.dNone = !this.dNone;
+  }
+}
 }
 </script>
 
@@ -123,6 +132,7 @@ components: {
   }
   img {
     @extend %icon-30;
+    cursor: pointer;
   }
   &-reply {
     margin-right: 128px;
