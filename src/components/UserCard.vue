@@ -2,30 +2,34 @@
   <div id="user">
     <div class="user__container">
       <div class="user__image-container">
-      <div class="background-wrapper">
-        <img src="https://picsum.photos/700/200" alt="" class="background">
-      </div>
-      <div class="avatar-wrapper">
-        <img src="../assets/static/images/noImage@2x.png" alt="" class="avatar">
-      </div>      
+        <div class="background-wrapper">
+          <img src="https://picsum.photos/700/200" alt="" class="background">
+        </div>
+        <div class="avatar-wrapper">
+          <img src="../assets/static/images/noImage@2x.png" alt="" class="avatar">
+        </div>      
       </div>
       <div class="user__btn__group">
         <div class="user__btn__group__list">
-          <div class="group-item">
+          <template v-if="!isCurrentUser">
+            <div class="group-item">
             <img src="../assets/static/images/msg@2x.png" alt="">          
-          </div>
-          <div class="group-item">
-            <img class="notify" src="../assets/static/images/notfi@2x.png" alt="">
-            <img class="notified" src="../assets/static/images/notfied@2x.png" alt="">
-          </div>
-          <div class="group-item follow">
-            <button class="follow">跟隨</button>
-          </div>
-          <div class="group-item">           
-              <button class="following">正在跟隨</button>           
-          </div>
-          <div class="group-item">
-            <button class="edit">編輯個人資料</button>
+            </div>
+            <div class="group-item">
+              <img v-if="!isSubscribe" class="notify" src="../assets/static/images/notfi@2x.png" alt="">
+              <img v-else class="notified" src="../assets/static/images/notfied@2x.png" alt="">
+            </div>
+            <div class="group-item follow">
+              <button class="follow">跟隨</button>
+            </div>
+            <div class="group-item">           
+                <button class="following">正在跟隨</button>           
+            </div>
+          </template>         
+          <div v-else class="group-item">
+            <button 
+              @click="openModal"
+              class="edit">編輯個人資料</button>
           </div>
         </div>
       </div>
@@ -50,9 +54,37 @@
           </router-link>
         </div>
       </div>
-    </div>        
+    </div> 
+    <template v-if="isEditing">
+      <Modal
+      @close-modal="closeModal"
+      />
+    </template>       
   </div> 
 </template>
+<script>
+  import Modal from '../components/EditModal.vue'
+  export default {
+    components:{
+      Modal
+    },
+    data(){
+      return{
+        isEditing: false,
+        isCurrentUser: true,
+        isSubscribe: false
+    }
+    },
+    methods:{
+      closeModal(){
+        this.isEditing = false
+      },
+      openModal(){
+        this.isEditing = true
+      }
+    }
+}
+</script>
 <style lang="scss" scoped>
   @import "../assets/scss/_basic.scss";
   #user{
@@ -93,12 +125,6 @@
         padding: 1rem 0.5rem;
         cursor: pointer;
       }
-      .notify {
-          display: none;
-        }
-      .follow {
-        display: none;
-      }  
       button{
         &.following{
          @extend %following;        
@@ -110,12 +136,10 @@
           @extend %button-white;
           width: 128px;
           height: 40px;
-          display: none;
         }        
       }      
     }
-    .user__container__info{ 
-  
+    .user__container__info{   
       margin-left: 1rem;  
       .user__follow{
         padding-top: 8px;
@@ -144,7 +168,6 @@
         line-height: 22px;
         margin-top: 6px;
       }
-
     }
   }
 </style>
