@@ -9,6 +9,9 @@ const SESSION_SECRET = process.env.SESSION_SECRET
 const passport = require('./config/passport')
 const apis = require('./routes')
 const { getUser } = require('./_helpers')
+const cors = require('cors')
+
+app.use(cors())
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
